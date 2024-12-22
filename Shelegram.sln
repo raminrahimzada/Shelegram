@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelegram", "Shelegram.csproj", "{42F4BCB6-CDE9-4917-ABEB-F577CD848A17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42F4BCB6-CDE9-4917-ABEB-F577CD848A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F4BCB6-CDE9-4917-ABEB-F577CD848A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F4BCB6-CDE9-4917-ABEB-F577CD848A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F4BCB6-CDE9-4917-ABEB-F577CD848A17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41EE80B2-0F22-4719-BC5F-5AA47FE5FFBC}
+	EndGlobalSection
+EndGlobal
