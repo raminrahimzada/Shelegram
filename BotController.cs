@@ -22,8 +22,8 @@ public sealed class BotController
 
     async Task OnMessage(Message msg, UpdateType type)
     {
-        if(msg.Text is null) return;    // we only handle Text messages here
-        if(msg.Chat.Id != 1078791068) return;//we do not handle non-admin messages
+        if(msg.Text is null) return;//only text
+        if(msg.Chat.Id != 1078791068) return;//only me
         var text = msg.Text;
         if(text == "/start")
         {
@@ -39,6 +39,7 @@ public sealed class BotController
             await RunSendAsync(msg.Chat, msg.Id, text);
         }
     }
+
     async Task SendAsync(ChatId chatId, string text)
     {
         await _bot.SendMessage(chatId, text, cancellationToken: _cancellationToken);
