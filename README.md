@@ -4,7 +4,7 @@ It contains my telegram user id hardcoded inside which only accepts me as a comm
 You can create new bot from bothfather and feed the token to this program like <br/>
 
 ```sh
-sudo ./shelegram "<your telegram token here>" &
+sudo nohup ./shelegram "<your telegram token here>" &
 ```
 
 Main idea is to replace the global ip thing and also saves you to open ssh port to internet <br/>
