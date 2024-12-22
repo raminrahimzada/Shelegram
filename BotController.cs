@@ -3,7 +3,6 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
 namespace Shelegram;
-
 public sealed class BotController
 {
     private readonly TelegramBotClient _bot;
@@ -28,30 +27,12 @@ public sealed class BotController
         var text = msg.Text;
         if(text == "/start")
         {
-            await SendAsync(msg.Chat, @"
-Usage:
-/test : test echo hello world
-/cputemp : see cpu temperature
-/restartnetwork : restart network manager
-/restart : restart os
-");
+            await SendAsync(msg.Chat, CommandHelper.UsageString);
             return;
         }
-        else if(text == "/test")
+        else if(CommandHelper.TryGet(text, out var command))
         {
-            await RunSendAsync(msg.Chat, msg.Id, @"echo hello-world");
-        }
-        else if(text == "/cputemp")
-        {
-            await RunSendAsync(msg.Chat, msg.Id, @"sudo vcgencmd measure_temp");
-        }
-        else if(text == "/restartnetwork")
-        {
-            await RunSendAsync(msg.Chat, msg.Id, @"sudo service NetworkManager restart");
-        }
-        else if(text == "/restart")
-        {
-            await RunSendAsync(msg.Chat, msg.Id, @"shutdown -r now");
+            await RunSendAsync(msg.Chat, msg.Id, command);
         }
         else
         {
@@ -75,17 +56,11 @@ Usage:
             await SendAsync(chatId, e.Message);
             success = false;
         }
-        try
-        {
-            var reaction = new ReactionTypeEmoji()
-            {
-                Emoji = success ? "👍" : "👎"
-            };
-            await _bot.SetMessageReaction(chatId, messageId, [reaction], cancellationToken: _cancellationToken);
-        }
-        catch
-        {
 
-        }
+        var reaction = new ReactionTypeEmoji()
+        {
+            Emoji = success ? "👍" : "👎"
+        };
+        await _bot.SetMessageReaction(chatId, messageId, [reaction], cancellationToken: _cancellationToken);
     }
 }
